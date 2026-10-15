@@ -1,0 +1,12 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__.*[Gg]mail.*__(send_message|reply|forward)",
+        "hooks": [
+          { "type": "command", "command": "python3 -B \"${CLAUDE_PLUGIN_ROOT}/hooks/confirm_send.py\"", "timeout": 10 }
+        ]
+      }
+    ]
+  }
+}

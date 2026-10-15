@@ -1,0 +1,34 @@
+{
+  "policy": "Audience Targeting Policy",
+  "owner": "Ad Sales Operations",
+  "effective": "2026-07-01",
+  "default_frequency_cap": 3,
+  "rules": [
+    {
+      "id": "T1",
+      "kind": "banned_sensitive_category",
+      "values": ["health", "children", "financial_hardship", "religion", "sexual_orientation"]
+    },
+    {
+      "id": "T2",
+      "kind": "min_households",
+      "value": 100000
+    },
+    {
+      "id": "T3",
+      "kind": "active_through_flight_end"
+    },
+    {
+      "id": "T4",
+      "kind": "banned_type_for_advertiser",
+      "advertisers": ["health", "pharma", "otc_medicine"],
+      "values": ["condition"]
+    },
+    {
+      "id": "T5",
+      "kind": "min_age_floor_for_advertiser",
+      "advertisers": ["alcohol"],
+      "value": 21
+    }
+  ]
+}

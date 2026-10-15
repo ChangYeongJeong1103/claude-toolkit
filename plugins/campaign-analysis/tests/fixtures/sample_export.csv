@@ -1,0 +1,304 @@
+campaign_id,campaign_name,date,impressions,tune_ins,spend,platform,content_type
+CAMP_2026_101,Fall Thriller Premiere,2026-09-07,131417,880,2658.9,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-07,257275,1984,6940.61,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-07,373687,4112,10898.1,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-07,109539,882,3891.63,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-07,143756,1569,3983.82,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-07,252772,2423,6807.81,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-07,86741,512,2681.12,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-07,250955,388,9281.45,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-07,62469,403,1604.89,streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-07,175047,1396,4224.33,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-08,155141,933,3571.51,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-08,214362,1901,6082.96,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-08,326043,3303,11080.16,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-08,135157,812,4127.36,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-08,171418,2196,4582.0,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-08,227576,2153,5137.34,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-08,72617,418,2344.94,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-08,287182,455,11385.5,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-08,71340,412,1787.61,streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-08,126820,755,2965.14,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-09,165716,1025,"$3,823.53",live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-09,213199,1833,5667.0,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-09,303833,3895,8543.13,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-09,106241,924,3423.08,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-09,143141,1834,4007.75,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-09,214729,1951,4918.36,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-09,89237,699,2767.59,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-09,297996,551,11732.19,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-09,79321,368,2229.96,streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-09,117142,1163,2904.08,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-10,155215,1146,3302.69,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-10,220035,1803,6475.48,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-10,398802,5471,11457.07,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-10,129196,878,4711.66,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-10,126820,1687,3406.74,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-10,276841,2109,6416.76,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-10,96629,751,3082.61,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-10,330090,499,11936.54,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-10,59308,291,1531.04,streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-10,141837,1328,3745.75,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-11,172487,1194,3680.42,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-11,231755,2531,6176.46,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-11,380649,4336,11194.33,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-11,122155,931,4465.12,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-11,156473,1251,4094.25,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-11,230849,2707,5920.86,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-11,100908,646,3190.27,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-11,343189,568,12152.72,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-11,63289,355,1588.83,streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-11,129072,1113,3281.89,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-12,173053,948,4090.76,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-12,272853,2318,7377.25,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-12,421306,4825,13139.67,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-12,163564,1236,5489.27,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-12,187363,1940,4669.57,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-12,318332,2403,7526.4,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-12,105039,779,3348.68,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-12,364676,644,13436.26,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-12,104583,706,2922.53,streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-12,170947,1501,4086.33,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-13,180236,905,3973.15,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-13,290309,2388,7845.17,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-13,485648,5789,14031.23,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-13,154447,1073,5129.19,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-13,214100,2667,5382.8,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-13,380380,3305,9780.92,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-13,128795,920,3957.3,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-13,397017,708,15895.95,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-13,92963,725,2575.43,streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-13,174571,1240,4296.01,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-14,182253,1031,4025.26,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-14,196946,1734,5448.07,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-14,417680,5220,11514.44,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-14,122206,973,4339.21,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-14,165563,2053,3796.55,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-14,298545,3061,6364.58,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-14,117345,719,3504.35,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-14,273454,435,11195.04,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-14,89795,698,2303.94,streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-14,130213,634,3263.86,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-15,191423,1361,4272.65,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-15,216057,2114,6016.56,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-15,397457,3563,12518.84,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-15,110784,803,3477.57,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-15,140350,1673,3342.37,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-15,260120,2507,5806.56,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-15,96279,844,3275.14,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-15,288409,349,11476.24,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-15,94714,496,2678.77,streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-15,142225,1019,3389.71,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-16,165272,1113,3553.38,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-16,165272,1113,3553.38,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-16,195152,1888,5649.57,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-16,329337,3183,9300.81,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-16,80768,509,2983.21,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-16,148615,1554,3890.33,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-16,246449,2262,6553.63,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-16,78754,449,2446.39,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-16,353753,535,13399.57,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-16,65738,532,1817.81,streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-16,138783,1009,3072.93,Streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-17,191365,969,4486.84,Live TV,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-17,239720,2040,6863.08,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-17,412617,3910,13497.58,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-17,98625,762,3251.51,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-17,137859,1593,3291.69,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-17,284976,2760,-1500.0,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-17,90682,814,2754.36,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-17,282169,338,10522.74,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-17,72275,477,1927.8,streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-17,155782,1387,3939.4,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-18,149912,864,3705.61,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-18,215996,2080,5372.8,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-18,351082,4586,9830.9,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-18,109536,873,3955.9,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-18,165661,2265,4627.29,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-18,239003,2527,5734.25,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-18,90029,410,,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-18,309775,554,12170.87,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-18,80694,529,2139.91,streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-18,136210,1079,3369.86,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-19,220110,1454,5169.38,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-19,247944,1532,7027.44,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-19,435686,5743,13021.59,LIVE_TV,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-19,143330,970,4892.54,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-19,190535,2103,4952.87,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-19,333788,2260,7521.55,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-19,113557,845,3459.59,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-19,357687,664,14175.32,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-19,104496,642,"$2,808.41",streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-19,156556,1200,4025.73,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-20,197118,1122,4246.84,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-20,242319,2410,6702.42,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-20,534783,4087,16175.69,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-20,125961,990,4009.76,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-20,167049,2499,3862.07,streaming,series
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-20,117058,803,4074.76,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-20,426106,565,14985.52,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-20,104440,663,2913.32,streaming,series
+CAMP_2026_108,Midnight Horror Fest,2026-09-20,152258,1645,4252.84,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-21,131455,984,3102.6,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-21,206814,2684,"$6,141.55",streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-21,285514,2426,8789.25,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-21,137424,1208,4824.04,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-21,115503,1510,2942.73,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-21,235821,1982,5529.29,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-21,102786,645,3013.46,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-21,254794,516,9388.49,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-21,74641,486,1920.5,streaming,series
+CAMP_2026_107,Playoff Baseball Push,2026-09-21,255517,2614,6414.43,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-09-21,105275,737,3533.64,streaming,sports
+CAMP_2026_108,Midnight Horror Fest,2026-09-21,121781,904,3115.43,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-22,155100,867,3207.3,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-22,211955,2249,5915.53,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-22,362222,3677,10980.97,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-22,129444,951,4334.43,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-22,146182,1605,3525.82,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-22,241085,2596,6046.96, live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-22,90867,553,2993.89,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-22,338148,779,14040.49,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-22,63392,444,1667.37,streaming,series
+CAMP_2026_107,Playoff Baseball Push,2026-09-22,263817,2905,7606.8,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-09-22,136192,1133,4383.87,streaming,sports
+CAMP_2026_108,Midnight Horror Fest,2026-09-22,126023,1061,3320.41,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-23,164686,,3891.0,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-23,222549,1914,6289.24,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-23,418689,4696,13064.61,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-23,116729,942,3900.98,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-23,184596,1662,5146.8,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-23,262072,2771,6406.76,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-23,99968,819,3163.74,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-23,318189,711,10420.21,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-23,92524,610,2765.88,streaming,series
+CAMP_2026_107,Playoff Baseball Push,2026-09-23,216314,2465,6099.15,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-09-23,116725,937,4136.59,streaming,sports
+CAMP_2026_108,Midnight Horror Fest,2026-09-23,99058,631,2664.34,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-24,152774,813,3191.36,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-24,189571,1295,4831.34,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-24,449459,4030,12816.52,Live TV,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-24,101915,831,3851.84,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-24,141380,146380,3869.69,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-24,308791,3346,7048.25,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-24,75002,482,2210.12,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-24,279208,590,"$11,048.24",Streaming,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-24,78060,489,2201.27,streaming,series
+CAMP_2026_107,Playoff Baseball Push,2026-09-24,255806,2967,7643.33,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-09-24,91295,826,2947.01,streaming,sports
+CAMP_2026_108,Midnight Horror Fest,2026-09-24,143915,952,3591.02,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-25,131228,765,"$3,026.91",live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-25,250248,2244,7077.65,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-25,457009,5065,13171.99,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-25,102667,607,3690.7,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-25,135958,1269,3226.6,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-25,282368,2523,7174.58,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-25,95313,618,2994.61,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-25,322606,531,11623.54,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-25,85719,565,2395.48,streaming,series
+CAMP_2026_107,Playoff Baseball Push,2026-09-25,246229,2589,7868.87,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-09-25,107693,783,3324.16,streaming,sports
+CAMP_2026_108,Midnight Horror Fest,2026-09-25,115828,698,2978.17,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-26,171178,965,3582.84,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-26,285588,2626,7671.8,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-26,476436,4802,16030.96,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-26,157489,802,5650.64,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-26,168256,1890,4577.08,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-26,287472,3343,7229.01,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-26,127305,1077,4188.95,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-26,376601,645,14541.29,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-26,111277,629,3300.05,streaming,series
+CAMP_2026_107,Playoff Baseball Push,2026-09-26,292236,3147,8568.04,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-09-26,123606,935,4118.3,streaming,sports
+CAMP_2026_108,Midnight Horror Fest,2026-09-26,135026,818,3138.61,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-27,198374,1313,4460.93,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-27,248728,2344,6450.75,Live TV,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-27,503976,5230,14059.07,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-27,133805,954,4827.33,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-27,214661,2615,6444.49,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-27,326824,2679,7532.38,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-27,104418,788,2989.27,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-27,310958,497,10397.34,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-27,112773,727,3011.31,streaming,series
+CAMP_2026_107,Playoff Baseball Push,2026-09-27,263917,2282,7825.65,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-09-27,129895,1316,4291.66,streaming,sports
+CAMP_2026_108,Midnight Horror Fest,2026-09-27,172105,1198,4485.37,streaming,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-28,148964,1156,3509.65,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-28,242931,1963,7212.05,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-28,362079,4122,9518.46,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-28,362079,4122,9518.46,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-28,108111,669,3156.63,streaming,sports
+CAMP_2026_103,crown jewels s2 ,2026-09-28,142451,1574,3738.33,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-28,286589,2974,6957.69,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-28,82601,487,2272.71,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-28,327538,540,13079.72,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-28,83414,576,2129.45,streaming,series
+CAMP_2026_107,Playoff Baseball Push,2026-09-28,233717,2554,7522.17,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-09-28,109379,938,3694.71,streaming,sports
+CAMP_2026_101,Fall Thriller Premiere,2026-09-29,159717,951,3645.61,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-29,254762,1641,6884.64,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-29,274678,2748,8792.11,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-29,92643,679,3162.79,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-29,163405,1636,4215.99,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-29,260551,2024,5926.71,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-29,93432,698,2825.78,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-29,321700,0,13065.9,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-29,89935,551,2359.65,streaming,series
+CAMP_2026_107,Playoff Baseball Push,2026-09-29,216637,2392,6002.32,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-09-29,103767,1145,3217.93,streaming,sports
+CAMP_2026_107,Playoff Baseball Push,2026-09-29,103767,1145,3217.93,streaming,sports
+CAMP_2026_101,Fall Thriller Premiere,2026-09-30,171458,850,3488.75,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-09-30,260996,3031,7819.76,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-09-30,390130,4762,11384.39,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-09-30,109431,779,3610.05,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-09-30,146256,1227,3399.37,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-09-30,203925,2197,4741.47,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-09-30,104497,866,3155.12,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-09-30,252158,401,9104.57,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-09-30,81284,422,2135.45,streaming,series
+CAMP_2026_107,Playoff Baseball Push,2026-09-30,168662,1846,4179.23,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-09-30,115183,749,4017.39,streaming,sports
+CAMP_2026_101,Fall Thriller Premiere,2026-10-01,155602,742,3394.82,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-10-01,219269,1812,5594.04,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-10-01,342293,2609,10189.48,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-10-01,0,703,3669.64,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-10-01,150387,1495,3926.61,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-10-01,245848,2221,6031.01,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-10-01,90518,635,2854.93,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-10-01,302188,681,10942.66,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-10-01,97077,570,3015.16,streaming,series
+CAMP_2026_107,Playoff Baseball Push,10/01/2026,270585,2215,8065.32,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-10-01,96351,797,3257.89,streaming,sports
+CAMP_2026_101,Fall Thriller Premiere,2026-10-02,152286,819,3457.85,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-10-02,252857,2351,7403.49,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-10-02,308570,2774,9462.48,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-10-02,109554,897,4017.67,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-10-02,175921,2072,4424.75,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-10-02,266298,2306,5857.04,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-10-02,86667,536,2649.13,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-10-02,299705,532,10381.16,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-10-02,64823,454,1876.75,streaming,series
+CAMP_2026_107,Playoff Baseball Push,2026-10-02,271577,3659,8338.72,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-10-02,113914,940,4064.98,streaming,sports
+CAMP_2026_101,Fall Thriller Premiere,2026-10-03,191325,1335,4251.75,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-10-03,309288,2923,"$8,632.70",streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-10-03,446283,4889,13541.39,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-10-03,132402,937,5039.71,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-10-03,206634,2440,5550.31,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-10-03,317389,2670,6959.64,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-10-03,130830,748,4432.73,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-10-03,369738,637,14664.34,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-10-03,120439,839,3328.42,streaming,series
+CAMP_2026_107,Playoff Baseball Push,2026-10-03,287689,3057,8227.56,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-10-03,116568,725,4384.56,streaming,sports
+CAMP_2026_101,Fall Thriller Premiere,2026-10-04,170888,908,3720.24,live_tv,movie
+CAMP_2026_101,Fall Thriller Premiere,2026-10-04,271444,2863,8295.85,streaming,movie
+CAMP_2026_102,Sunday Night Football Promo,2026-10-04,474476,4673,12758.96,live_tv,sports
+CAMP_2026_102,Sunday Night Football Promo,2026-10-04,158027,1367,5871.31,streaming,sports
+CAMP_2026_103,Crown Jewels S2,2026-10-04,189623,1865,4734.0,streaming,series
+CAMP_2026_104,College GameDay Tune-In,2026-10-04,361334,3821,8483.96,live_tv,sports
+CAMP_2026_105,Holiday Rom-Com Slate,2026-10-04,85080,606,2442.82,streaming,movie
+CAMP_2026_106,Late Night Docu-Series,2026-10-04,328313,640,13265.44,live_tv,series
+CAMP_2026_106,Late Night Docu-Series,2026-10-04,101804,664,2865.46,streaming,series
+CAMP_2026_107,Playoff Baseball Push,2026-10-04,320186,3443,8961.63,live_tv,sports
+CAMP_2026_107,Playoff Baseball Push,2026-10-04,123665,796,3840.11,streaming,sports

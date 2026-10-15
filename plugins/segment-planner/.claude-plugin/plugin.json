@@ -1,0 +1,9 @@
+{
+  "name": "segment-planner",
+  "version": "0.1.0",
+  "description": "Recommends audience segments for an advertiser brief from the team's segment catalog: catalog-only segments cited by ID with the reason each fits, policy exclusions with the rule behind each, and impressions and reach computed in code. Asks for a missing budget or flight dates instead of assuming.",
+  "author": { "name": "ChangYeong Jeong" },
+  "repository": "https://github.com/ChangYeongJeong1103/claude-toolkit",
+  "license": "MIT",
+  "keywords": ["audience-segments", "media-planning", "targeting-policy", "advertising"]
+}

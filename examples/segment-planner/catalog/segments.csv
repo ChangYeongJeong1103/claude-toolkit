@@ -1,0 +1,19 @@
+segment_id,name,type,description,households,cpm_usd,status,expires_on,sensitive_category,age_floor,exclusive_group
+SEG-101,Sports Enthusiasts,interest,Households that watch or follow sports regularly,4200000,28.00,active,2027-06-30,,18,
+SEG-102,Live Sports Viewers (ACR),behavioral,Households seen watching 3+ live sports broadcasts in the last 30 days,6800000,32.00,active,2027-06-30,,18,
+SEG-103,Craft Beer Interest 21+,interest,Adults 21+ with craft beer purchase or content interest,1150000,30.00,active,2027-03-31,,21,
+SEG-104,Craft Beer Interest,interest,Adults with craft beer purchase or content interest,1900000,26.00,active,2027-03-31,,18,
+SEG-105,Type 2 Diabetes Condition,condition,Households with a member managing type 2 diabetes,820000,45.00,active,2027-06-30,health,18,
+SEG-106,Wellness & Fitness Interest,interest,Households engaged with fitness and general wellness content,3300000,27.00,active,2027-06-30,,18,
+SEG-107,Seasonal Allergy Sufferers,condition,Households with a member who has seasonal allergies,2100000,40.00,active,2027-06-30,health,18,
+SEG-108,Parents of Young Children,demographic,Households with children under 6,2900000,29.00,active,2027-06-30,,18,
+SEG-109,Kids Animation Viewers,behavioral,Households where children under 13 watch animated programming,3600000,24.00,active,2027-06-30,children,0,
+SEG-110,New Movers,life_event,Households that moved in the last 90 days,640000,33.00,active,2027-06-30,,18,
+SEG-111,Luxury Auto Intenders,intent,Households researching luxury vehicles,380000,48.00,active,2027-06-30,,18,
+SEG-112,Streaming-Heavy Households,behavioral,Households with 20+ streaming hours per week,5500000,25.00,active,2027-06-30,,18,
+SEG-113,Holiday Shoppers 2025,seasonal,Households with heavy holiday retail activity in 2025,4800000,30.00,expired,2026-01-15,,18,
+SEG-114,Rom-Com Fans,interest,Households that regularly watch romantic comedies,95000,31.00,active,2027-06-30,,18,
+SEG-115,Adults 21-34,demographic,Households with a primary viewer aged 21-34,7200000,22.00,active,2027-12-31,,21,AGE
+SEG-116,Adults 35-54,demographic,Households with a primary viewer aged 35-54,9100000,22.00,active,2027-12-31,,21,AGE
+SEG-117,Sleep & Recovery Interest,interest,Households engaged with sleep and recovery wellness content,1400000,29.00,active,2026-11-15,,18,
+SEG-118,Financial Hardship Signals,behavioral,Households showing signs of financial distress,2300000,20.00,active,2027-06-30,financial_hardship,18,

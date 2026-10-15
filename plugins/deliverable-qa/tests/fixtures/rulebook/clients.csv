@@ -1,0 +1,6 @@
+client_id,display_name,aliases,status,category,benchmark_consent
+C001,Kestrel Studios,Kestrel;KS Studios,active,entertainment,no
+C002,Bluepeak Streaming,Bluepeak;BPK,active,streaming,no
+C003,Harborline Auto,Harborline,active,automotive,no
+C004,Lumen Sports Network,Lumen Sports;LSN,active,sports,yes
+C005,Crestfall Pictures,Crestfall,former,entertainment,no

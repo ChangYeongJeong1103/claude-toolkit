@@ -1,0 +1,4 @@
+client_id,display_name,aliases,status,category,benchmark_consent
+P01,Northwind Foods,Northwind;NWF,active,food,no
+P02,Orchid Travel,Orchid,active,travel,yes
+P03,Granite Bank,Granite,former,finance,no

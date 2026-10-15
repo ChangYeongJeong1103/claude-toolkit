@@ -1,0 +1,9 @@
+{
+  "name": "campaign-analysis",
+  "version": "0.1.0",
+  "description": "Answers account managers' weekly campaign questions (last week's performance, streaming vs live TV, underperformers and wasted spend) from a CSV export. All numbers come from a bundled script.",
+  "author": { "name": "ChangYeong Jeong" },
+  "repository": "https://github.com/ChangYeongJeong1103/claude-toolkit",
+  "license": "MIT",
+  "keywords": ["campaign", "analytics", "tune-in", "account-management"]
+}

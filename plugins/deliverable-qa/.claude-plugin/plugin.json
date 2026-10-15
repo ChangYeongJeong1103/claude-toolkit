@@ -1,0 +1,9 @@
+{
+  "name": "deliverable-qa",
+  "version": "0.1.0",
+  "description": "QA-checks a Markdown client deliverable against the team's rulebook before it is sent: every finding cites a rule and a draft line, numbers are recomputed from the metric definitions, blockers are separated from warnings with a ready-to-send verdict, and the draft is never changed.",
+  "author": { "name": "ChangYeong Jeong" },
+  "repository": "https://github.com/ChangYeongJeong1103/claude-toolkit",
+  "license": "MIT",
+  "keywords": ["qa", "client-deliverables", "rulebook", "metrics"]
+}

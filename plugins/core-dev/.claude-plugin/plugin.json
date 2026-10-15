@@ -1,0 +1,9 @@
+{
+  "name": "core-dev",
+  "version": "0.1.0",
+  "description": "Opt-in developer guardrails: a structured debugging workflow, a read-only architecture reviewer, and conda environment and .env protection hooks.",
+  "author": { "name": "ChangYeong Jeong" },
+  "repository": "https://github.com/ChangYeongJeong1103/claude-toolkit",
+  "license": "MIT",
+  "keywords": ["debugging", "conda", "dotenv", "architecture-review", "guardrails"]
+}

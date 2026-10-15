@@ -1,0 +1,34 @@
+{
+  "name": "claude-toolkit",
+  "owner": {
+    "name": "ChangYeong Jeong"
+  },
+  "description": "Reusable Claude Code plugins that help teams adopt configurable, verifiable AI-assisted workflows.",
+  "plugins": [
+    {
+      "name": "campaign-analysis",
+      "source": "./plugins/campaign-analysis",
+      "description": "Answers recurring campaign-performance questions from a CSV export with reproducible calculations and optional Gmail drafting."
+    },
+    {
+      "name": "policy-assistant",
+      "source": "./plugins/policy-assistant",
+      "description": "Answers AI-tool policy questions from local Markdown documents with citations, effective-date handling, and a grounding hook."
+    },
+    {
+      "name": "deliverable-qa",
+      "source": "./plugins/deliverable-qa",
+      "description": "Checks Markdown deliverables against a portable rulebook, recomputes defined metrics, and reports blockers and warnings."
+    },
+    {
+      "name": "segment-planner",
+      "source": "./plugins/segment-planner",
+      "description": "Recommends eligible catalog segments for a brief and computes delivery estimates under a configurable targeting policy."
+    },
+    {
+      "name": "core-dev",
+      "source": "./plugins/core-dev",
+      "description": "Provides a debugging workflow, a read-only architecture reviewer, and opt-in conda and .env guard hooks."
+    }
+  ]
+}

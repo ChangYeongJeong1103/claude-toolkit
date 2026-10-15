@@ -1,0 +1,13 @@
+{
+  "description": "Ask before an Edit, Write, MultiEdit, or NotebookEdit call touches a file under a drafts/ folder: the QA plugin never changes drafts; the analyst decides.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit",
+        "hooks": [
+          { "type": "command", "command": "python3 -B \"${CLAUDE_PLUGIN_ROOT}/hooks/guard_drafts.py\"", "timeout": 10 }
+        ]
+      }
+    ]
+  }
+}
