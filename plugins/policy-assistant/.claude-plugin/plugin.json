@@ -1,6 +1,6 @@
 {
   "name": "policy-assistant",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Answers employees' AI-tool policy questions from a folder of policy documents, with citations, the policy in effect today, and a grounding check that blocks answers citing sections, links, or contacts that aren't in the documents.",
   "author": { "name": "ChangYeong Jeong" },
   "repository": "https://github.com/ChangYeongJeong1103/claude-toolkit",

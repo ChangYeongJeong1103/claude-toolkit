@@ -177,7 +177,7 @@ class SampleExportTest(unittest.TestCase):
 
 
 class ReviewFixesTest(unittest.TestCase):
-    """Regressions for issues found by the code-review and plugin-dev:skill-reviewer plugins."""
+    """Bugs found in code and skill review."""
 
     def test_home_relative_path_is_expanded(self):
         with tempfile.TemporaryDirectory() as home:

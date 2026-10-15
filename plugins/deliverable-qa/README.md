@@ -1,57 +1,59 @@
 # Deliverable QA
 
-## Problem
+## What it does
 
-A client-facing Markdown draft should be checked against the same rulebook and metric definitions before it is sent. This plugin scans a draft, recomputes supported metrics, validates evidence for findings, separates blockers from warnings, and calculates a ready-to-send verdict without editing the draft.
+Before a Markdown deliverable goes to a client, it should be checked against the same rulebook and metric definitions every time. This plugin scans the draft, recomputes the supported metrics, checks the evidence behind every finding, separates blockers from warnings and gives a ready-to-send verdict. It never edits the draft.
 
 ## Quick start
 
-Requirements: Claude Code 2.1.275 or later and `python3` on `PATH`. Install from the public marketplace:
+You need Claude Code 2.1.275 or later and `python3` on `PATH`. Install from the marketplace:
 
 ```text
 /plugin install deliverable-qa --marketplace ChangYeongJeong1103/claude-toolkit
 ```
 
-Ask for a check and name the rulebook when it is not discoverable beside the draft:
+Ask for a check, and name the rulebook if it isn't next to the drafts folder:
 
 ```text
 Is examples/deliverable-qa/drafts/kestrel-q3-recap.md ready to send? Use examples/deliverable-qa/rulebook.
 ```
 
-The repository example paths require cloning this repository. You can also invoke `/deliverable-qa:qa-check`.
+The example paths only exist in a clone of this repository. You can also call the skill directly with `/deliverable-qa:qa-check`.
 
-## Representative example
+## Example
 
-A report follows this flow:
+A check runs in four steps:
 
-1. `scan` returns rulebook, client, metric, table, and line evidence as JSON.
-2. `calc` recomputes supported prose claims from numbers shown in the draft.
-3. The skill maps evidence to rules and proposes fixes.
-4. `report` rejects unknown rule IDs, bad line quotes, and omitted unambiguous evidence, then reads severity from the rulebook and prints the verdict.
+1. **`scan`** returns the rulebook, client, metric, table and line evidence as JSON.
+2. **`calc`** recomputes the prose claims it supports from numbers shown in the draft.
+3. **The skill** maps the evidence to rules and proposes fixes.
+4. **`report`** rejects unknown rule IDs, wrong line quotes and unambiguous evidence that was left out, then reads the severity from the rulebook and prints the verdict.
 
-The synthetic Kestrel draft includes a metric mismatch and rulebook issues that produce blockers and a warning without modifying the file.
+The sample Kestrel draft has a metric mismatch and other rulebook problems, so it comes back with blockers and a warning, and the file is left untouched.
 
-## Configuration/input contract
+## Input format
 
-Drafts must be Markdown. The rulebook directory contains:
+Drafts must be Markdown. The rulebook folder has three files:
 
 - `deliverable-rules.md`: one `## <ID>. <Title> (Blocker|Warning)` section per rule
-- `metric-definitions.md`: a Markdown table with `Metric`, `Formula`, and `Shown as`
-- `clients.csv`: `display_name`, semicolon-separated `aliases`, `status`, and `benchmark_consent`
+- `metric-definitions.md`: a Markdown table with `Metric`, `Formula` and `Shown as`
+- `clients.csv`: `display_name`, semicolon-separated `aliases`, `status` and `benchmark_consent`
 
-Supported formula operators are `÷`, `×`, `−`, `+`, parentheses, `/`, and `*`. Constants do not use thousands separators. The script discovers `rulebook/` beside or inside the drafts folder unless `--rulebook` is supplied.
+Formulas can use `÷`, `×`, `−`, `+`, parentheses, `/` and `*`. Constants are written without thousands separators. The script finds a `rulebook/` folder beside or inside the drafts folder unless you pass `--rulebook`.
 
-## Architecture/verification boundary
+## How it works
 
-The `qa-check` skill decides which documented rule applies and words suggested fixes. `qa.py` owns rule parsing, supported calculations, evidence validation, rule severity, and the verdict.
+- **Skill (`qa-check`):** decides which documented rule applies and words the suggested fixes.
+- **Script (`qa.py`):** rule parsing, supported calculations, evidence validation, severity and the verdict.
+- **Hook (`PreToolUse`):** asks before a supported edit tool touches a path under a directory named `drafts`. It is path-based, does not run after the QA script and does not cover edits made through the shell.
 
-The `PreToolUse` hook asks before supported edit tools touch a path under a directory named `drafts`. It is path-based and does not run after the QA script or cover shell-based edits. Tests use self-contained rulebook and draft fixtures, including an alternate-team contract.
+The tests use their own rulebook and draft fixtures, including a second team's rulebook with different rule IDs, metrics and clients.
 
 ## Limitations
 
-- PowerPoint and PDF are outside the current scope, and the plugin sends nothing.
-- The hook does not cover Bash edits such as redirects or `sed -i`.
-- Some prose evidence, rule terms, and title judgments remain model decisions.
-- Formula parsing does not support ASCII `-`, `x`, constants such as `1,000`, or scaled inputs such as `3.05 million`.
-- Shell JSON arguments cannot contain apostrophes under the current skill contract.
-- All bundled clients, drafts, rules, and metrics are synthetic.
+- PowerPoint and PDF are not supported, and the plugin never sends anything.
+- The hook does not catch shell edits such as redirects or `sed -i`.
+- Some prose evidence, rule terms and title checks are still the model's judgment.
+- Formulas cannot use ASCII `-`, `x`, constants like `1,000` or scaled inputs like `3.05 million`.
+- JSON passed on the shell cannot contain apostrophes under the current skill instructions.
+- All bundled clients, drafts, rules and metrics are synthetic.

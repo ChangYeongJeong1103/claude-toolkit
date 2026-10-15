@@ -1,8 +1,8 @@
-# Synthetic examples
+# Examples
 
-All files under `examples/` are synthetic demonstration inputs. Names, organizations, clients, policies, campaigns, and metrics are fictional and are not instructions for real operational decisions.
+Everything in this folder is made up for demos: the names, organizations, clients, policies, campaigns and metrics. None of it should be used for real decisions.
 
-These paths exist only after cloning the repository. Installed plugins do not copy the root `examples/` directory into an arbitrary working project.
+These files only exist in a clone of the repository. Installing a plugin does not copy `examples/` into your project.
 
 ## Campaign analysis
 
@@ -20,30 +20,24 @@ Input folder: `policy-assistant/policy-docs/`
 Can I use Cursor with client data? The policy folder is examples/policy-assistant/policy-docs.
 ```
 
-The policy set intentionally includes superseded, future-dated, incomplete, and conflicting references to exercise the plugin's documented behavior.
+I deliberately put superseded, future-dated, incomplete and conflicting documents in this set, so the questions exercise the status and conflict rules.
 
 ## Deliverable QA
 
-Inputs:
-
-- `deliverable-qa/drafts/`
-- `deliverable-qa/rulebook/`
+Inputs: `deliverable-qa/drafts/` and `deliverable-qa/rulebook/`
 
 ```text
 Is examples/deliverable-qa/drafts/kestrel-q3-recap.md ready to send? Use examples/deliverable-qa/rulebook.
 ```
 
-The drafts intentionally contain issues and should not be treated as client-ready documents.
+The drafts contain mistakes on purpose. They are not client-ready documents.
 
 ## Segment planner
 
-Inputs:
-
-- `segment-planner/briefs/`
-- `segment-planner/catalog/`
+Inputs: `segment-planner/briefs/` and `segment-planner/catalog/`
 
 ```text
 Recommend audience segments for examples/segment-planner/briefs/brightwell-allergy.md using examples/segment-planner/catalog.
 ```
 
-The catalog and targeting policy are fictional and do not represent a real platform or regulatory policy.
+The catalog and targeting policy are fictional and do not describe a real platform or regulation.

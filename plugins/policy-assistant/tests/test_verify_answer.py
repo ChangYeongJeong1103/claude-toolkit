@@ -84,7 +84,8 @@ class GroundingHookTest(unittest.TestCase):
         self.assertIsNone(run_hook("No citation and help@nowhere.example", entries=entries))
 
     def test_relative_docs_path_uses_the_session_cwd(self):
-        entries = entries_for(command="python3 /p/policy_context.py --docs policy-docs --question x", cwd=str(FIXTURES))
+        entries = entries_for(command="python3 /p/policy_context.py --docs policy-docs --question Cursor?",
+                              cwd=str(FIXTURES))
         self.assertIsNone(run_hook(GOOD, entries=entries))
         self.assert_blocked(run_hook(GOOD + " Ask help@company.example.", entries=entries), "help@company.example")
 
@@ -116,7 +117,7 @@ class GroundingHookTest(unittest.TestCase):
 
 
 class ReviewFixesTest(GroundingHookTest.__base__):
-    """Regressions for the /code-review findings on the hook."""
+    """Bugs found in code review of the hook."""
 
     def assert_blocked(self, out, *fragments):
         GroundingHookTest.assert_blocked(self, out, *fragments)
@@ -156,23 +157,42 @@ class ReviewFixesTest(GroundingHookTest.__base__):
 
 
 class EndToEndFixesTest(GroundingHookTest.__base__):
-    """Regressions for issues found in the end-to-end check (step 5)."""
+    """Bugs found while running real policy questions end to end."""
 
+    # Korean answer text. Hangul is written as \u escapes so the source file stays in English.
     def test_korean_particles_after_contacts_and_links_pass(self):
-        korean = (" FAQ는 go/ai-access를 안내하지만, https://it.company.example/portal/ai-access에서 신청하고 "
-                  "ai-taskforce@company.example로 문의하세요.")
+        korean = (" FAQ\ub294 go/ai-access\ub97c \uc548\ub0b4\ud558\uc9c0\ub9cc, https://it.company.example/portal/ai-access\uc5d0\uc11c \uc2e0\uccad\ud558\uace0 "
+                  "ai-taskforce@company.example\ub85c \ubb38\uc758\ud558\uc138\uc694.")
         self.assertIsNone(run_hook(GOOD + korean))
-        out = run_hook(GOOD + " go/ai-free를 쓰세요.")
+        out = run_hook(GOOD + " go/ai-free\ub97c \uc4f0\uc138\uc694.")
         self.assertEqual(out["decision"], "block")
         self.assertIn("go/ai-free is not", out["reason"])
 
     def test_korean_particles_after_a_section_number_pass(self):
-        korean = (" 현재 절차는 `approved-ai-tools.md § 4`가 정하고, approved-ai-tools.md § 4의 절차는 "
-                  "2026-11-01에 바뀝니다.")
+        korean = (" \ud604\uc7ac \uc808\ucc28\ub294 `approved-ai-tools.md § 4`\uac00 \uc815\ud558\uace0, approved-ai-tools.md § 4\uc758 \uc808\ucc28\ub294 "
+                  "2026-11-01\uc5d0 \ubc14\ub01d\ub2c8\ub2e4.")
         self.assertIsNone(run_hook(GOOD + korean))
-        out = run_hook(GOOD + " `approved-ai-tools.md § 9`가 허용합니다.")
+        out = run_hook(GOOD + " `approved-ai-tools.md § 9`\uac00 \ud5c8\uc6a9\ud569\ub2c8\ub2e4.")
         self.assertEqual(out["decision"], "block")
         self.assertIn("has no such section", out["reason"])
+
+
+class ReleaseFixesTest(GroundingHookTest.__base__):
+    """Bugs found in review after the first public release."""
+
+    NOTE_TAKER = entries_for(command=f'python3 /p/policy_context.py --docs "{DOCS}" '
+                                     "--question 'Can I use an AI note-taker to record meetings?'")
+
+    def test_a_real_citation_does_not_answer_an_uncovered_question(self):
+        out = run_hook("Yes, you may record meetings (`approved-ai-tools.md § 1. Approved tools`).",
+                       entries=self.NOTE_TAKER)
+        self.assertEqual(out["decision"], "block")
+        self.assertIn("don't cover this question", out["reason"])
+
+    def test_uncovered_answer_with_a_citation_and_a_contact_passes(self):
+        self.assertIsNone(run_hook(
+            "The policy documents don't cover AI note-takers; `approved-ai-tools.md § 1. Approved tools` only lists "
+            "general tools. Ask the AI Task Force: ai-taskforce@company.example.", entries=self.NOTE_TAKER))
 
 
 if __name__ == "__main__":

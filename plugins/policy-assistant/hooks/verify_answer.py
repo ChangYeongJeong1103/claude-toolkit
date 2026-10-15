@@ -25,7 +25,8 @@ TAG = "[policy-assistant]"
 SCRIPT = Path(__file__).resolve().parent.parent / "skills" / "policy-answers" / "scripts" / "policy_context.py"
 # The text after "§" is captured in a lookahead, so it isn't consumed and a later citation on the same line
 # is still found (a consuming capture swallowed the next citations, and they went unchecked).
-# It stops at a backtick: "`approved-ai-tools.md § 4`가 …" cites § 4, not "§ 4가 …".
+# It stops at a backtick, so a backticked "approved-ai-tools.md § 4" followed by a Korean particle cites § 4,
+# not "§ 4" plus the particle.
 CITATION_RE = re.compile(r"(?i)([\w.-]+\.md)\s*§\s*(?=([^\n`]{0,200}))")
 NOT_COVERED_RE = re.compile(r"(?i)(?:\bnot|n't|n’t)\s+(?:\w+\s+)?(?:cover|address|mention)\w*")
 LINK_PUNCT = "*_`'\"<>()[]{};:.,!?"
@@ -126,7 +127,7 @@ def heading_matches(heading, cited):
         rest = text[len(number.group()):]
         if rest[:1] in (".", " "):  # a title follows the number: it must be the real one
             return bool(bare and rest.lstrip(" .").startswith(bare))
-        # the citation ends right after the number, including before a Korean particle ("§ 4의")
+        # the citation ends right after the number, including before a non-ASCII particle (Korean attaches one)
         return not rest or rest[0] in ")],;:" or not rest[0].isascii()
     return False
 
@@ -164,7 +165,8 @@ def problems_in(answer, calls, pc):
     covered = any(pc.rank(question, list(docs.values()))[1] for _, question in calls)
     if covered and not CITATION_RE.search(answer):
         problems.append("the documents cover this question, but the answer has no citation (`file.md § heading`)")
-    if not covered and not CITATION_RE.search(answer) and not (NOT_COVERED_RE.search(answer) and contacts):
+    # A real citation doesn't make an uncovered question answerable, so this check applies with or without one.
+    if not covered and not (NOT_COVERED_RE.search(answer) and contacts):
         problems.append("the documents don't cover this question: say so and give a contact from the documents")
     return problems
 

@@ -1,7 +1,7 @@
 ---
 name: debug-workflow
-description: This skill should be used when the user reports a bug or asks to "debug this", "fix this bug/error", "why does this fail", investigate a traceback or failing test, or says "버그 분석", "에러 고쳐줘", "왜 안 돼". Enforces a fixed analysis order (Intent → Tiny Trace → Input/State/Control Flow/Output → Edge Cases → Minimal Fix + Guard), then reports root cause, fix, and verification results.
-version: 0.1.0
+description: This skill should be used when the user reports a bug or asks to "debug this", "fix this bug/error", "why does this fail", or asks to investigate a traceback or failing test. Enforces a fixed analysis order (Intent → Tiny Trace → Input/State/Control Flow/Output → Edge Cases → Minimal Fix + Guard), then reports root cause, fix, and verification results.
+version: 0.1.1
 ---
 
 # Debug Workflow

@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # The code uses Python 3.9-compatible syntax; CI targets supported releases conservatively.
+        # The code avoids syntax newer than 3.9, but CI only tests releases that still get updates.
         python-version: ["3.10", "3.11", "3.12", "3.13"]
 
     steps:

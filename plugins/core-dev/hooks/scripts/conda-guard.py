@@ -80,8 +80,8 @@ def main():
     cmd = json.load(sys.stdin).get("tool_input", {}).get("command", "")
     for prog, env in invocations(cmd, os.environ.get("CONDA_DEFAULT_ENV")):
         if env in (None, "", "base"):
-            emit("ask", f"[core-dev conda-guard] `{prog}`이(가) conda env '{env or 'unknown'}'에서 "
-                        "실행됩니다. 의도한 env가 맞는지 확인하세요 (다른 env: `conda run -n <env> ...`).")
+            emit("ask", f"[core-dev conda-guard] `{prog}` will run in conda env '{env or 'unknown'}'. "
+                        "Check that this is the intended env (for another env: `conda run -n <env> ...`).")
             return
 
 
@@ -93,8 +93,8 @@ def run():
         shell_words = importlib.import_module("shell_words")
         main()
     except Exception as exc:
-        emit("ask", f"[core-dev conda-guard] guard 오류로 판정하지 못했습니다 "
-                    f"({type(exc).__name__}: {exc}). 실행할 env를 직접 확인하세요.")
+        emit("ask", f"[core-dev conda-guard] The guard hit an error and could not decide "
+                    f"({type(exc).__name__}: {exc}). Check which env this command will run in.")
 
 
 if __name__ == "__main__":

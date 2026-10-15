@@ -1,52 +1,52 @@
 # Policy assistant
 
-## Problem
+## What it does
 
-AI-tool policy questions often span documents with different dates, statuses, and authority. This plugin retrieves relevant sections from a local Markdown folder, identifies the policy in effect for the requested date, and produces cited answers without inventing missing links or contacts.
+An AI-tool policy question often touches several documents with different dates, statuses and authority. This plugin pulls the relevant sections from a local folder of Markdown policies, works out which policy is in effect on the date you ask about, and answers with citations. It never fills in a link or contact that the documents don't have.
 
 ## Quick start
 
-Requirements: Claude Code 2.1.275 or later and `python3` on `PATH`. Install from the public marketplace:
+You need Claude Code 2.1.275 or later and `python3` on `PATH`. Install from the marketplace:
 
 ```text
 /plugin install policy-assistant --marketplace ChangYeongJeong1103/claude-toolkit
 ```
 
-Ask a question and provide the policy folder:
+Ask a question and give the policy folder:
 
 ```text
 Can I use Cursor with client data? The policy folder is examples/policy-assistant/policy-docs.
 ```
 
-The repository example path requires cloning this repository. On first use, approve the `policy-answers` skill.
+The example path only exists in a clone of this repository. Approve the `policy-answers` skill the first time it runs.
 
-## Representative example
+## Example
 
-The synthetic policy set includes active, superseded, future-dated, and reference documents. A question about a tool and client data demonstrates:
+The sample policies include active, superseded, future-dated and reference documents. The Cursor question shows:
 
-- current policy taking precedence over an older FAQ
+- the current policy winning over an older FAQ
 - citations in `file.md § heading` form
-- an allowed alternative only when named by the retrieved documents
-- contacts and links copied from the documents rather than invented
+- an approved alternative, but only when the retrieved documents name one
+- contacts and links copied from the documents, not invented
 
-## Configuration/input contract
+## Input format
 
-Use a folder of Markdown files with names that contain no spaces. Headings become citation targets.
+A folder of Markdown files whose names contain no spaces. Headings become citation targets.
 
-Document metadata can be YAML-like front matter or inline metadata before the first `##` heading. Supported keys are `status`, `effective`, `last updated`, `supersedes`, `superseded_by`, and `replaces`. Supported statuses are Active, Approved, and Superseded. Supported dates include ISO dates, slash-separated dates, month-name dates, and month/year dates.
+Metadata can be YAML-like front matter or inline lines before the first `##` heading. Supported keys: `status`, `effective`, `last updated`, `supersedes`, `superseded_by` and `replaces`. Supported statuses: Active, Approved and Superseded. Dates can be ISO, slash-separated, month-name or month/year.
 
-A document with no usable date is reference-only. An unsupported status is not in effect, and an unreadable date is never treated as active. Put the authority rule in a heading containing `Precedence` so it is always included.
+A document with no usable date is treated as reference only. An unsupported status means not in effect, and an unreadable date is never treated as active. A Superseded document still applies for `--as-of` dates before its replacement's effective date; if the replacement has no date, it stays superseded. Put the authority rule under a heading containing `Precedence` so it is always included.
 
-## Architecture/verification boundary
+## How it works
 
-The `policy-answers` skill applies authority, conflict, and alternative-selection judgment. `policy_context.py` deterministically parses metadata, evaluates status, retrieves sections, and extracts contacts, links, and missing references.
-
-A `Stop` hook checks answers only after a policy script call in the current turn. It verifies that cited sections, contacts, and links exist and that covered answers contain a citation. It does not prove that the prose correctly summarizes a real section.
+- **Skill (`policy-answers`):** decides authority, conflicts and which alternative to name.
+- **Script (`policy_context.py`):** parses metadata, works out each document's status, retrieves sections and extracts contacts, links and missing references.
+- **Hook (`Stop`):** runs only after a policy script call in the current turn. It checks that the cited sections, contacts and links exist, and that an answer to a covered question has a citation. If the documents don't cover the question, the answer must say so and give a contact from the documents, even when it also cites a section. It does not check that the prose summarizes the section correctly.
 
 ## Limitations
 
-- Retrieval is keyword-based rather than semantic.
-- A Stop hook can request a revision but cannot retract text already displayed.
-- Resuming a prior process may require reapproving the script if the skill is not reloaded.
-- PDF, DOCX, Slack, and non-English retrieval are outside the current contract.
-- All bundled policies, organizations, contacts, and scenarios are synthetic.
+- Retrieval is keyword-based, not semantic.
+- A Stop hook can ask for a revision but cannot take back text already on screen.
+- When you resume an old session without reloading the skill, you may need to approve the script again.
+- PDF, DOCX, Slack and non-English retrieval are not supported.
+- All bundled policies, organizations, contacts and scenarios are synthetic.

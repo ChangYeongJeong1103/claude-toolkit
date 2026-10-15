@@ -1,65 +1,70 @@
-# Validation evidence
+# Validation
 
-## Confirmed baseline
+## Tests and strict validation
 
-The public snapshot preserves five standard-library `unittest` suites and their assertions:
+Each plugin has its own standard-library `unittest` suite:
 
-- campaign-analysis: 31 tests
-- policy-assistant: 41 tests
-- deliverable-qa: 44 tests
-- segment-planner: 19 tests
-- core-dev: 27 tests
-- total: 162 tests
+| Plugin | Tests |
+|---|---:|
+| campaign-analysis | 31 |
+| policy-assistant | 46 |
+| deliverable-qa | 44 |
+| segment-planner | 19 |
+| core-dev | 27 |
+| **Total** | **167** |
 
-All five plugin manifests and the marketplace passed `claude plugin validate --strict` with Claude Code 2.1.296 before this release was prepared. The release workflow reruns the same checks.
+The marketplace and all five plugins pass `claude plugin validate --strict` with Claude Code 2.1.296. CI reruns the tests on Python 3.10 to 3.13 and the strict validation on every push.
 
-## What the suites check
+## What the suites cover
 
-### Campaign analysis
+- **Campaign analysis:** CSV normalization and exclusions, duplicate handling, complete-week selection, campaign lookup, campaign and platform metrics, underperformer thresholds, potential waste, the same numbers in Markdown and HTML output, and the Gmail send-confirmation hook.
+- **Policy assistant:** metadata and date parsing, document status, supersession and section replacement, section retrieval, coverage, contacts and links, missing references, citation validation, limiting the hook to the current turn, relative paths, hook errors that fail open, and Korean text right after an otherwise valid reference.
+- **Deliverable QA:** the rulebook format, every bundled draft fixture, formulas and rounding, prose claims, evidence validation, severity and verdict, a second team's rulebook, CLI error output, fixture integrity and the draft-edit confirmation hook.
+- **Segment planner:** all five policy rule kinds, expiration boundaries, refusing unknown and excluded segments, configurable thresholds, delivery math, household caps, combined-reach ranges and CLI errors.
+- **Core dev:** shell tokenization, wrappers and activation commands, conda environment inference, `.env` path detection, shell writes, the hook contract over a real subprocess, `ask` when a guard itself fails, and running every `${CLAUDE_PLUGIN_ROOT}` command exactly as declared in `hooks.json`.
 
-The suite covers CSV normalization and exclusions, duplicate handling, complete-week selection, campaign lookup, campaign and platform metrics, underperformer thresholds, potential waste, Markdown/HTML numeric parity, and the Gmail send-confirmation hook.
+## Bugs that became regression tests
 
-### Policy assistant
+Some examples from reviews during development, each now covered by a test:
 
-The suite covers metadata and date parsing, document status, supersession and section replacement, section retrieval, coverage, contacts and links, missing references, citation validation, current-turn hook scoping, relative paths, fail-open hook errors, and multilingual punctuation around otherwise valid references.
+- **Campaign analysis:** `nan`/`inf` values poisoned totals; decimal commas (`200,50`) were read as thousands separators; an exact 1.5× threshold was missed by floating-point error; a partial campaign name matched the wrong campaign.
+- **Policy assistant:** a truncated contact passed a substring check; citations with real section numbers but invented titles passed; unsupported statuses were treated as active; a correct link followed directly by a Korean particle was rejected. After the first public release (fixed in 0.1.1): a document marked Superseded showed as superseded even for dates before its replacement took effect, and any real citation let an answer to an uncovered question skip the "say so and give a contact" check.
+- **Deliverable QA:** a warning on the same line hid a blocker that was never reported; a prose metric needed summed inputs; lowercase aliases and BOM-prefixed client files failed; malformed formulas and findings crashed instead of returning structured errors.
+- **Segment planner:** before release, I found that non-positive budgets, caps, household counts and CPMs could reach the delivery math, and a malformed number in the catalog raised an unstructured error. Input validation now rejects them before planning.
+- **Core dev:** the tests cover both the recognized commands and the fail-safe paths. Public packaging changed documentation and paths, not guard logic, and 0.1.1 only rewrote the guard messages in English.
 
-### Deliverable QA
+## Live sessions
 
-The suite covers the rulebook contract, all bundled draft fixtures, formulas and rounding, prose claims, evidence validation, severity and verdict calculation, alternate-team portability, CLI error output, fixture integrity, and the draft-edit confirmation hook.
+### During development
 
-### Segment planner
+These sessions ran before the plugins were packaged for this repository. Packaging later changed the directory layout, the documentation and the quoting of skill script paths, so the results describe the pre-packaging plugins.
 
-The suite covers all five supported policy rule kinds, expiration boundaries, unknown and excluded segment refusals, configurable policy thresholds, delivery calculations, household caps, combined-reach ranges, and CLI errors.
+- **Campaign analysis:** triggered for all three question families in fresh sessions and used the script without permission denials; a later fresh session rechecked the formatting. The Gmail flow created a draft, showed the send hook's confirmation and sent only after approval. The no-Gmail fallback and a declined send were not tested end to end.
+- **Policy assistant:** six fresh headless sessions (five policy scenarios and one unrelated prompt), then five follow-up questions in one session with the script rerun each time. After the regression fixes, every citation, contact and link matched the documents.
+- **Deliverable QA:** all three demo questions in one fresh interactive session. All three used `scan`, `calc` and `report` and matched the hand-computed findings. Only the first question loaded the skill in a new conversation.
+- **Segment planner:** three headless demos in separate fresh sessions plus an interactive check. The first two plans matched the script and tests; the third asked for the missing budget and dates without suggesting segments.
+- **Core dev:** covered by unit and subprocess tests only; no comparable multi-question demo was run.
 
-### Core dev
+### Public release check
 
-The suite covers shell tokenization, wrappers and activation commands, conda environment inference, `.env` path detection, supported shell writes, subprocess hook contracts, fail-safe `ask` behavior, and execution of the declared `${CLAUDE_PLUGIN_ROOT}` hook commands without bytecode output.
+On 2026-10-14 I checked the published repository at commit `bd768d4` with Claude Code 2.1.296. This was before the two policy-assistant fixes in 0.1.1, so the policy demo below ran on the earlier status and hook logic.
 
-## Review findings converted to regression coverage
+- **Install from GitHub.** In an empty Claude Code config, `claude plugin install campaign-analysis --marketplace ChangYeongJeong1103/claude-toolkit` cloned the repository and added the marketplace, and `claude plugin install <name>@claude-toolkit` installed the other four. All five were enabled at version 0.1.0.
+- **Path with spaces.** Before publishing, a headless segment-planner session run from a checkout path containing spaces ran `check` and `plan` through the skill's quoted, pre-approved script command with no permission denials.
+- **One demo per workflow plugin,** each in a fresh headless session using the GitHub-installed copy, with only the `Skill` tool pre-approved:
 
-Selected examples from reviews during development:
+| Plugin | Prompt | What I checked | Result |
+|---|---|---|---|
+| campaign-analysis | How did Fall Thriller do last week? | Script ran without a permission prompt; numbers in the answer are the script's | Pass |
+| policy-assistant | Can I use Cursor with client data? | Script ran; answer is "no", cites the in-effect documents, names the approved alternative and flags the conflicting FAQ | Pass |
+| deliverable-qa | Is kestrel-q3-recap.md ready to send? | `scan`, `calc` and `report` ran; verdict NOT READY TO SEND with 3 blockers and 1 warning | Pass |
+| segment-planner | Recommend segments for lumen-playoffs.md | `check` and `plan` ran; only eligible segments, delivery table from the script | Pass |
 
-- **Campaign analysis:** fixed non-finite values contaminating totals, decimal commas being misread as thousands separators, an exact 1.5× threshold missed by floating-point error, and partial campaign names matching the wrong campaign. Regression tests preserve each fix.
-- **Policy assistant:** fixed truncated contacts passing substring checks, citations with real section numbers but invented titles, unsupported statuses falling through as active, and correct references followed by Korean particles being falsely rejected. The legitimate Korean regression cases remain in the suite.
-- **Deliverable QA:** fixed a warning on the same line hiding unreported blocker evidence, added summed inputs for a prose metric, handled lowercase aliases and BOM-prefixed client files, and converted malformed formulas and findings into structured errors.
-- **Segment planner:** public-release review found that non-positive budgets, caps, household counts, and CPMs could reach the delivery math, while malformed numeric cells could raise an unstructured error. Input validation and regression tests now reject those cases before planning.
-- **Core dev:** tests exercise both recognized behavior and explicit fail-safe paths. The release changes documentation and path layout, not guard logic.
+- **Core dev alongside another plugin.** With core-dev enabled and conda `base` active, the conda guard stopped the segment-planner script before it ran, and the model asked which environment to use instead of working around it. This is the intended behavior.
 
-## Fresh-session evidence
+Model wording changes from run to run, so I compare numbers, verdicts, citations, allowed segments and hook decisions rather than exact text. I did not resend real Gmail messages for this check.
 
-During development, these behavioral checks were run before the plugins were packaged for this public repository. Public packaging later changed the directory layout, documentation, and the quoting of skill script paths, so these results describe the pre-packaging plugins:
-
-- Campaign analysis triggered for its three supported question families in fresh sessions, used script output without permission denials in the reproduced user environment, and passed a later fresh-session formatting recheck. The optional Gmail flow created a draft, showed the send hook's confirmation, and sent only after user approval. The no-Gmail fallback and declined-send path were not exercised end to end.
-- Policy assistant ran six fresh headless sessions during its primary check: five policy scenarios plus one unrelated prompt. A later single-process session exercised five practical follow-up questions and reran the script for each. Citation, contact, and link checks matched the documents after the recorded regression fixes.
-- Deliverable QA ran its three demo questions in a fresh interactive plugin session. All three used scan, calculation, and report commands and matched the hand-computed findings. The three questions shared that session, so only the first loaded the skill text from a new conversation.
-- Segment planner ran three headless demos in separate fresh sessions and was also checked interactively. The first two produced plans matching the script and tests; the third asked for the missing budget and dates without suggesting segments.
-- Core dev is covered by unit and subprocess hook tests; no comparable multi-question demo suite was run during development.
-
-After the path-quoting change, a headless segment-planner session with Claude Code 2.1.296, run from a checkout path containing spaces, loaded the skill and ran `check` and `plan` through the skill's quoted, pre-approved script command with no permission denials. The other three workflow skills use the same quoted command form.
-
-Model-generated wording is stochastic. Demos check invariants, cited evidence, script values, verdicts, and lifecycle decisions rather than exact prose.
-
-## Release commands
+## Running the checks
 
 From the repository root:
 
@@ -76,10 +81,10 @@ done
 
 ## Limitations
 
-- The test fixtures and examples are synthetic; they are useful demonstrations, not production policy or business guidance.
-- Model judgment can still misclassify meaning even when deterministic references and arithmetic are correct.
-- Policy coverage is keyword-based, and its Stop hook checks reference existence rather than semantic entailment.
-- Deliverable QA supports Markdown and its documented rulebook/formula subset. Its draft guard does not cover shell-based edits.
-- Segment planning supports five policy rule kinds, an even budget split, and a reach range rather than household-level deduplication. Validation covers required columns and core numeric/date fields but is not a general CSV schema system.
-- Campaign analysis supports its documented periods and questions, not arbitrary exploratory analysis.
-- Core dev hooks are opt-in heuristics and can miss unrecognized command forms.
+- The fixtures and examples are synthetic. They are good demonstrations, not real policy or business guidance.
+- The model can still misread meaning even when the references and arithmetic are correct.
+- Policy retrieval is keyword-based, and its Stop hook checks that references exist, not that the answer follows from them.
+- Deliverable QA supports Markdown and the documented rulebook and formula subset. Its draft guard does not cover edits made through the shell.
+- Segment planning supports five rule kinds, an even budget split and a reach range rather than household-level deduplication. Validation covers the required columns and the core number and date fields, but it is not a general CSV schema system.
+- Campaign analysis answers its documented periods and questions, not arbitrary exploratory analysis.
+- Core dev hooks are opt-in heuristics and can miss command forms they do not recognize.

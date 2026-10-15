@@ -24,8 +24,8 @@ those there here what which who whom whose when where why how use using used get
 ok okay please company work ai
 """.split())
 TOP_SECTIONS = 6
-# Contacts and links are ASCII. Python's \w also matches Hangul, so a particle written right after a link
-# ("go/ai-access를") was read as part of it, and the grounding hook blocked a correct answer.
+# Contacts and links are ASCII. Python's \w also matches Hangul, so a Korean particle written right after a
+# link was read as part of the link, and the grounding hook blocked a correct answer.
 EMAIL_RE = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+", re.ASCII)
 CHANNEL_RE = re.compile(r"(?<![\w/#])#[a-z0-9][a-z0-9_-]+")
 LINK_RE = re.compile(r"https?://[^\s)>\]\x80-\U0010ffff]+|\bgo/[\w-]+", re.ASCII)
@@ -151,11 +151,27 @@ def base_status(d, as_of):
     return "dated (no status)" if d["last_updated"] else "reference only"
 
 
+def successors(d, docs):
+    """Documents that replace `d`, named by its `superseded_by` or by their own `supersedes`."""
+    names = {os.path.basename(d["superseded_by"])} if d["superseded_by"] else set()
+    names |= {o["name"] for o in docs if o["supersedes"] and os.path.basename(o["supersedes"]) == d["name"]}
+    return [o for o in docs if o["name"] in names]
+
+
 def assign_status(docs, as_of):
     """Set doc["status"]: superseded, upcoming, in effect, not in effect, unreadable date, dated, or reference only."""
     by_name = {d["name"]: d for d in docs}
     for d in docs:
         d["status"] = base_status(d, as_of)
+    # A document marked Superseded still applied before its replacement took effect. If any replacement date
+    # is unknown, it stays superseded rather than guessing.
+    for d in docs:
+        if d["status"] != "superseded" or not d["effective"]:
+            continue
+        later = [o["effective"] for o in successors(d, docs)]
+        if later and all(later) and as_of < min(later):
+            d["status"] = "upcoming" if d["effective"] > as_of else "in effect"
+            d["replaced_on"] = min(later)
     # Only a document that is itself in effect can supersede another (an undated draft can't).
     live = {d["name"] for d in docs if d["status"] == "in effect"}
     superseded = set()
@@ -254,7 +270,8 @@ def render(ctx, as_of_given):
     for d in ctx["docs"]:
         notes = "; ".join(x for x in (
             d["supersedes"] and f"supersedes {d['supersedes']}",
-            d["superseded_by"] and f"superseded by {d['superseded_by']}",
+            d["superseded_by"] and f"superseded by {d['superseded_by']}"
+            + (f" from {d['replaced_on']}" if d.get("replaced_on") else ""),
             d["replaces"] and f"replaces {d['replaces']}") if x)
         out.append(f"| {d['name']} | {d['status']} | {doc_dates(d)} | {notes} |")
 

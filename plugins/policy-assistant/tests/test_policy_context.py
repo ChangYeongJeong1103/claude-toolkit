@@ -3,9 +3,11 @@
 The fixture is a copy of the sample policy folder. Expected statuses and sections come from reading those
 documents (front matter, inline metadata, and what each section says), not from the script's output.
 """
+import atexit
 import importlib.util
 import io
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -36,6 +38,7 @@ def citations(ctx):
 
 def temp_folder(files):
     d = tempfile.mkdtemp()
+    atexit.register(shutil.rmtree, d, ignore_errors=True)
     for name, text in files.items():
         Path(d, name).write_text(text)
     return d
@@ -149,7 +152,7 @@ class ExtractedFactsTest(unittest.TestCase):
 
 
 class ReviewFixesTest(unittest.TestCase):
-    """Regressions for the /code-review and skill-reviewer findings on the script."""
+    """Bugs found in code and skill review of the script."""
 
     def status(self, files, as_of=TODAY):
         return context("rule", as_of=as_of, folder=temp_folder(files))["status"]
@@ -188,6 +191,37 @@ class ReviewFixesTest(unittest.TestCase):
         })
         ctx = context("How do I request access?", folder=folder)
         self.assertEqual([d["name"] for d in ctx["upcoming"]], ["access-v2.md"])
+
+
+class ReleaseFixesTest(unittest.TestCase):
+    """Bugs found in review after the first public release."""
+
+    def test_superseded_document_applied_before_its_replacement(self):
+        v1, v2 = "ai-acceptable-use-policy-v1.md", "ai-acceptable-use-policy-v2.md"
+        cases = [
+            (date(2025, 5, 1), "upcoming", "upcoming"),        # before v1 took effect
+            (date(2025, 12, 1), "in effect", "upcoming"),      # v1 in effect, v2 not yet
+            (date(2026, 3, 1), "superseded", "in effect"),     # v2 takes effect on its date
+        ]
+        for as_of, v1_status, v2_status in cases:
+            with self.subTest(as_of=as_of):
+                status = context("anything", as_of=as_of)["status"]
+                self.assertEqual((status[v1], status[v2]), (v1_status, v2_status))
+
+    def test_past_status_notes_when_the_replacement_starts(self):
+        out = io.StringIO()
+        with redirect_stdout(out):
+            pc.main(["--docs", DOCS, "--question", "AI tools", "--as-of", "2025-12-01"])
+        self.assertIn("superseded by ai-acceptable-use-policy-v2.md from 2026-03-01", out.getvalue())
+
+    def test_superseded_without_a_dated_replacement_stays_superseded(self):
+        status = context("rule", as_of=date(2025, 12, 1), folder=temp_folder({
+            "old.md": "---\nstatus: Superseded\neffective: 2025-06-01\nsuperseded_by: new.md\n---\n# O\n\n## Rule\nx\n",
+            "new.md": "---\nstatus: Active\nsupersedes: old.md\n---\n# N\n\n## Rule\ny\n",
+            "orphan.md": "---\nstatus: Superseded\neffective: 2025-06-01\n---\n# P\n\n## Rule\nz\n",
+        }))["status"]
+        self.assertEqual(status["old.md"], "superseded")
+        self.assertEqual(status["orphan.md"], "superseded")
 
 
 class CliTest(unittest.TestCase):

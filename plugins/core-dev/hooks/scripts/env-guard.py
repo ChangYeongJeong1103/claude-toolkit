@@ -12,8 +12,8 @@ IN_PLACE_RE = re.compile(r"^(?:-\w*i|--in-place)")
 LAST_ARG_CMDS = {"cp", "ln", "install", "rsync"}    # destination = last argument
 ALL_ARGS_CMDS = {"mv", "touch", "tee", "truncate"}  # every argument is written
 IN_PLACE_CMDS = {"sed", "perl"}                     # only with -i
-REASON = ("[core-dev env-guard] .env 파일의 생성/수정은 차단되어 있습니다. "
-          "필요한 변수는 사용자가 직접 추가하도록 안내하고, 예시 값은 .env.example에 작성하세요.")
+REASON = ("[core-dev env-guard] Creating or editing .env files is blocked. "
+          "Ask the user to add the variables themselves, and put example values in .env.example.")
 shell_words = None  # imported in run(), so a failed import also ends in `ask`
 
 
@@ -69,8 +69,8 @@ def run():
         shell_words = importlib.import_module("shell_words")
         main()
     except Exception as exc:
-        emit("ask", f"[core-dev env-guard] guard 오류로 판정하지 못했습니다 "
-                    f"({type(exc).__name__}: {exc}). .env 파일을 수정하는 작업인지 직접 확인하세요.")
+        emit("ask", f"[core-dev env-guard] The guard hit an error and could not decide "
+                    f"({type(exc).__name__}: {exc}). Check whether this command modifies a .env file.")
 
 
 if __name__ == "__main__":
