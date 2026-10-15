@@ -62,6 +62,24 @@ On 2026-10-14 I checked the published repository at commit `bd768d4` with Claude
 
 - **Core dev alongside another plugin.** With core-dev enabled and conda `base` active, the conda guard stopped the segment-planner script before it ran, and the model asked which environment to use instead of working around it. This is the intended behavior.
 
+### 0.1.1 check
+
+On 2026-10-14 I repeated the check at commit `3c98c84` with Claude Code 2.1.300, after CI passed on that commit.
+
+- **Install from GitHub.** The same two install commands in an empty config installed all five. policy-assistant and core-dev were at 0.1.1 and the other three at 0.1.0.
+- **Two kinds of approval.** In the workflow demos the skill's `allowed-tools` entry approved the script command, so every script ran without a permission prompt. core-dev is different on purpose: its conda guard returns `ask` before any `python3` command in conda `base`. In headless mode nobody can answer, so an `ask` shows up as a permission denial.
+- **Fresh headless sessions** using the GitHub-installed copy, with only the `Skill` tool pre-approved and a non-`base` conda env unless noted:
+
+| Plugin | Prompt | What I checked | Result |
+|---|---|---|---|
+| campaign-analysis | How did Fall Thriller do last week? | Script auto-approved; numbers in the answer are the script's | Pass |
+| policy-assistant | Can I use Cursor with client data? | Script auto-approved; answer is "no", cites the in-effect documents, names the approved alternative and flags the conflicting FAQ | Pass |
+| policy-assistant | Can I use an AI note-taker to record meetings? | Script said NOT COVERED; answer says the documents don't cover it and gives contacts from the documents | Pass |
+| policy-assistant | Which AI acceptable use policy applied on 2025-12-01? | Model passed `--as-of 2025-12-01`; answer uses v1 as in effect and v2 as upcoming | Pass |
+| deliverable-qa | Is kestrel-q3-recap.md ready to send? | `scan`, `calc` and `report` auto-approved; NOT READY TO SEND with 3 blockers and 1 warning | Pass |
+| segment-planner | Recommend segments for lumen-playoffs.md | `check` and `plan` auto-approved; only eligible segments, delivery table from the script. The model's own `ls` of a path outside the working folder was denied, which is unrelated to the plugin | Pass |
+| segment-planner + core-dev, conda `base` | Recommend segments for brightwell-allergy.md | The conda guard's `ask` stopped `segments.py check` twice. The model stopped, did not compute anything itself and asked how to run the script | Pass (intended `ask`) |
+
 Model wording changes from run to run, so I compare numbers, verdicts, citations, allowed segments and hook decisions rather than exact text. I did not resend real Gmail messages for this check.
 
 ## Running the checks
